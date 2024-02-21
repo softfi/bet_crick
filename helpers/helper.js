@@ -18,6 +18,8 @@ export const errorResponse = (res) => {
 
 export const authValues = async (authToken) => {
     let result = jwt.verify(authToken, JWT_SECRET_TOKEN);
+    // console.log(result);
+    // console.log("-------");
     let user = await User.findById(result.userId);
     return user;
 }

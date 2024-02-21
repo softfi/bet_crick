@@ -7,6 +7,7 @@ import User from "../models/User.js";
 export const userAuthentication = (req, res, next) => {
     try {
         const token = req.headers['authorization'];
+        
         if (!token) {
             return responseWithoutData(res, 401, false, "Unauthorized");
         }
@@ -16,7 +17,11 @@ export const userAuthentication = (req, res, next) => {
                 return res.status(401).send({ status: false, msg: "Token Expired" });
             }else{
                 var decoded = await authValues(token);
+                // console.log(decoded);
+                // console.log(decoded.type);
+                // console.log(decoded.type === "customer");
                 if (decoded && decoded.type === "customer") {
+                    // console.log(decoded);
                     if(decoded.isActive === true){
                         if(decoded.isEmailVerify === true || decoded.isMobileVerify === true){
                             next();

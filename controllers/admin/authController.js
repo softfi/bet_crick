@@ -11,7 +11,7 @@ export const adminLogin = async (req, res) => {
         if (admin) {
             // Compare the provided password with the stored hashed password
             let comparePassword = await bcrypt.compare(req.body.password, admin.password);
-
+            
             if (comparePassword) {
                 // Passwords match, send a success response with a JWT token
                 return responseWithData(res,200,true,"Admin Logged In Successfully",{...admin._doc,token:getJwtToken(admin._id)});

@@ -4,17 +4,17 @@ import { errorResponse, getImageSingedUrlById, responseWithData, responseWithout
 import User from "../../models/User.js";
 import Wallet from "../../models/Wallet.js";
 
-export const createUser = async (req,res) => {
+export const createUser = async (req, res) => {
     try {
         let dataSave = await User.create({
             ...req?.body,
-            password: await bcrypt.hash(req?.body?.password, 10),
-            role:'6512c4c6185c0a6bf02b2c65'
+            password: await bcrypt.hash(req.body.password, 10),
+            role: '6512c4c6185c0a6bf02b2c65'
         });
-        if(dataSave) {
-            return responseWithoutData(res,200,true,"User has been added Successfully!!");
+        if (dataSave) {
+            return responseWithoutData(res, 200, true, "User has been added Successfully!!");
         } else {
-            return responseWithoutData(res,201,false,"Something Went Wrong!!");
+            return responseWithoutData(res, 201, false, "Something Went Wrong!!");
         }
     } catch (error) {
         errorLog(error);
@@ -22,20 +22,20 @@ export const createUser = async (req,res) => {
     }
 }
 
-export const listUser = async (req,res) =>{
+export const listUser = async (req, res) => {
     try {
-        let datas = await User.find({isDeleted:false,role:"6512c4c6185c0a6bf02b2c65"});
+        let datas = await User.find({ isDeleted: false, role: "6512c4c6185c0a6bf02b2c65" });
         let lists = [];
-        for(let data of datas) {
+        for (let data of datas) {
             lists.push({
                 ...data._doc,
-                image:(data.image) ? await getImageSingedUrlById(data.image) : ''
+                image: (data.image) ? await getImageSingedUrlById(data.image) : ''
             });
         }
-        if(lists.length > 0) {
-            return responseWithData(res,200,true,"User List get Successfully",lists);
+        if (lists.length > 0) {
+            return responseWithData(res, 200, true, "User List get Successfully", lists);
         } else {
-            return responseWithoutData(res,201,false,"No Record Found");
+            return responseWithoutData(res, 201, false, "No Record Found");
         }
     } catch (error) {
         errorLog(error);
@@ -43,20 +43,35 @@ export const listUser = async (req,res) =>{
     }
 }
 
-export const updateUser = async (req,res) => {
+export const userDetails = async (req, res) => {
     try {
-        if(!(await User.findById(req?.body?.id))){
-            return responseWithoutData(res,201,false,"Invalid user Id!!");
+        let userInfo = await User.findOne({ _id: req?.body?.id, isDeleted: false });
+
+        if (userInfo) {
+            return responseWithData(res, 200, true, "User has been updated Successfully!!", userInfo);
+        } else {
+            return responseWithoutData(res, 401, false, "Invalid user Id!!");
         }
-        let dataSave = await User.findByIdAndUpdate(req?.body?.id,{
+    } catch (error) {
+        errorLog(error);
+        errorResponse(res);
+    }
+}
+
+export const updateUser = async (req, res) => {
+    try {
+        if (!(await User.findById(req?.body?.id))) {
+            return responseWithoutData(res, 201, false, "Invalid user Id!!");
+        }
+        let dataSave = await User.findByIdAndUpdate(req?.body?.id, {
             ...req?.body,
             password: await bcrypt.hash(req?.body?.password, 10),
-            role:'6512c4c6185c0a6bf02b2c65'
+            role: '6512c4c6185c0a6bf02b2c65'
         });
-        if(dataSave) {
-            return responseWithoutData(res,200,true,"User has been updated Successfully!!");
+        if (dataSave) {
+            return responseWithoutData(res, 200, true, "User has been updated Successfully!!");
         } else {
-            return responseWithoutData(res,201,false,"Something Went Wrong!!");
+            return responseWithoutData(res, 201, false, "Something Went Wrong!!");
         }
     } catch (error) {
         errorLog(error);
@@ -64,16 +79,16 @@ export const updateUser = async (req,res) => {
     }
 }
 
-export const deleteUser = async (req,res) => {
+export const deleteUser = async (req, res) => {
     try {
-        if(!(await User.findById(req?.body?.id))){
-            return responseWithoutData(res,201,false,"Invalid user Id!!");
+        if (!(await User.findById(req?.params?.id))) {
+            return responseWithoutData(res, 201, false, "Invalid user Id!!");
         }
-        let dataSave = await User.findByIdAndUpdate(req?.body?.id,{isDeleted:true});
-        if(dataSave) {
-            return responseWithoutData(res,200,true,"User has been deleted Successfully!!");
+        let dataSave = await User.findByIdAndUpdate(req?.params?.id, { isDeleted: true });
+        if (dataSave) {
+            return responseWithoutData(res, 200, true, "User has been deleted Successfully!!");
         } else {
-            return responseWithoutData(res,201,false,"Something Went Wrong!!");
+            return responseWithoutData(res, 201, false, "Something Went Wrong!!");
         }
     } catch (error) {
         errorLog(error);
@@ -81,34 +96,34 @@ export const deleteUser = async (req,res) => {
     }
 }
 
-export const creditDebitUser = async (req,res) => {
+export const creditDebitUser = async (req, res) => {
     try {
         let checkUser = await User.findById(req?.body?.userId);
-        if(!checkUser){
-            return responseWithoutData(res,201,false,"Invalid user Id!!");
+        if (!checkUser) {
+            return responseWithoutData(res, 201, false, "Invalid user Id!!");
         }
-        if((checkUser?.walletBalance < req?.body?.amount) && req?.body?.type == 'debit'){
-            return responseWithoutData(res,201,false,"wallet Balance is lower than the request amount you want to debit!!");
+        if ((checkUser?.walletBalance < req?.body?.amount) && req?.body?.type == 'debit') {
+            return responseWithoutData(res, 201, false, "wallet Balance is lower than the request amount you want to debit!!");
         }
         let dataSave = await Wallet.create({
-            userId          : checkUser?._id,
-            previousAmount  : (checkUser?.walletBalance) ? checkUser?.walletBalance : 0,
-            amount          : req?.body?.amount,
-            type            : req?.body?.type,
-            transactionId   : req?.body?.transactionId,
-            status          : "success",
-            remarks         : req?.body?.remarks,
-            addedBy         : "admin",
+            userId: checkUser?._id,
+            previousAmount: (checkUser?.walletBalance) ? checkUser?.walletBalance : 0,
+            amount: req?.body?.amount,
+            type: req?.body?.type,
+            transactionId: req?.body?.transactionId,
+            status: "success",
+            remarks: req?.body?.remarks,
+            addedBy: "admin",
         });
-        if(dataSave) {
-            if(dataSave?.type == 'credit') {
-                await User.findByIdAndUpdate(checkUser?._id,{walletBalance:(Number(dataSave?.previousAmount)+Number(req?.body?.amount))});
+        if (dataSave) {
+            if (dataSave?.type == 'credit') {
+                await User.findByIdAndUpdate(checkUser?._id, { walletBalance: (Number(dataSave?.previousAmount) + Number(req?.body?.amount)) });
             } else {
-                await User.findByIdAndUpdate(checkUser?._id,{walletBalance:(Number(dataSave?.previousAmount)-Number(req?.body?.amount))});
+                await User.findByIdAndUpdate(checkUser?._id, { walletBalance: (Number(dataSave?.previousAmount) - Number(req?.body?.amount)) });
             }
-            return responseWithoutData(res,200,true,`Amount has been ${dataSave?.type}ed to wallet!!`);
+            return responseWithoutData(res, 200, true, `Amount has been ${dataSave?.type}ed to wallet!!`);
         } else {
-            return responseWithoutData(res,201,false,"Something Went Wrong!!");
+            return responseWithoutData(res, 201, false, "Something Went Wrong!!");
         }
     } catch (error) {
         errorLog(error);
@@ -116,23 +131,23 @@ export const creditDebitUser = async (req,res) => {
     }
 }
 
-export const creditDebitList = async (req,res) => {
+export const creditDebitList = async (req, res) => {
     try {
-        let datas = await Wallet.find({isActive:true});
+        let datas = await Wallet.find({ isActive: true });
         let lists = [];
-        for(let data of datas) {
+        for (let data of datas) {
             let userData = await User.findById(data?.userId);
             lists.push({
                 ...data._doc,
-                userName:userData?.name,
-                userMobile:userData?.mobile,
-                userEmail:userData?.email,
+                userName: userData?.name,
+                userMobile: userData?.mobile,
+                userEmail: userData?.email,
             });
         }
-        if(lists.length > 0) {
-            return responseWithData(res,200,true,"Wallet history has been get Successfully",lists);
+        if (lists.length > 0) {
+            return responseWithData(res, 200, true, "Wallet history has been get Successfully", lists);
         } else {
-            return responseWithoutData(res,201,false,"No Record Found");
+            return responseWithoutData(res, 201, false, "No Record Found");
         }
     } catch (error) {
         errorLog(error);

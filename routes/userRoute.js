@@ -12,7 +12,7 @@ import User from "../models/User.js";
 import { logout, userLogin } from "../controllers/user/authController.js";
 import { userValidation } from "../validation/userValidation.js";
 import { userMenusList } from "../controllers/user/menuController.js";
-import { getDailyReport, myOrders, profileUpdate, updateSettings, userDetails, userNotification } from "../controllers/user/userProfileController.js";
+import { changePassword, getDailyReport, getProfile, myOrders, profileUpdate, updateSettings, userDetails, userNotification } from "../controllers/user/userProfileController.js";
 /* Middleware For Creating Console Log of Routes*/
 userAuthRoute.use(morgan('dev'));
 userRoute.use(morgan('dev'));
@@ -46,6 +46,17 @@ userAuthRoute.put('/profile',[
   body('firstName', 'firstName field is required').notEmpty(),
   body('lastName', 'lastName field is required').notEmpty(),
 ],userValidation, profileUpdate); 
+
+
+// By New
+userAuthRoute.post('/get-profile',[
+  body('id', 'id field is required').notEmpty()
+],userValidation, getProfile); 
+
+userAuthRoute.post('/change-password',[
+  body('currentPassword', 'currentPassword field is required').notEmpty(),
+  body('newPassword', 'newPassword field is required').notEmpty(),
+],userValidation, changePassword); 
  
 
 userAuthRoute.post('/update-settings',[

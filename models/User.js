@@ -9,6 +9,7 @@ const userSchema = Schema({
     image           : { type: String, default:null, index: true},
     role            : { type: String, index: true},
     password        : { type: String },
+    type        : { type: String },
     dob             : { type: String ,index: true},
     walletBalance   : { type: Number, index: true, default:0 },
     emailOtp        : { type: Number },

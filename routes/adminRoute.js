@@ -18,7 +18,7 @@ import { assignPermissionsToRole, getPermissionByRole } from "../controllers/adm
 import { addAndUpdateValue, addType, getSettings } from "../controllers/admin/settingController.js";
 import Setting from "../models/Setting.js";
 import User from "../models/User.js";
-import { createUser, creditDebitList, creditDebitUser, deleteUser, listUser, updateUser } from "../controllers/admin/userController.js";
+import { createUser, creditDebitList, creditDebitUser, deleteUser, listUser, updateUser, userDetails } from "../controllers/admin/userController.js";
 import expressGroupRoutes from 'express-group-routes';
 
 /***************************
@@ -168,6 +168,13 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
 
   adminAuthRoute.get('/', listUser);
 
+  adminAuthRoute.post('/get-details',
+  [
+    body('id').notEmpty().withMessage('email field is required')
+  ],
+  adminValiation,
+   userDetails);
+
   adminAuthRoute.put('/update', [
     body('id').notEmpty().withMessage('id field is required'),
     body('name').notEmpty().withMessage('name field is required'),
@@ -210,9 +217,7 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
     }),
   ], adminValiation, updateUser);
 
-  adminAuthRoute.delete('/delete', [
-    body('id').notEmpty().withMessage('id field is required')
-  ], adminValiation, deleteUser);
+  adminAuthRoute.delete('/delete/:id',deleteUser);
 
   adminAuthRoute.post('/credit-debit-user', [
     body('userId').notEmpty().withMessage('userId field is required'),
