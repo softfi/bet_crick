@@ -2,14 +2,16 @@ import { errorLog } from "../../config/logger.js";
 import bcrypt from "bcrypt";
 import { errorResponse, getImageSingedUrlById, responseWithData, responseWithoutData } from "../../helpers/helper.js";
 import User from "../../models/User.js";
+import Role from "../../models/Role.js";
 import Wallet from "../../models/Wallet.js";
 
 export const createUser = async (req, res) => {
     try {
+
         let dataSave = await User.create({
             ...req?.body,
             password: await bcrypt.hash(req.body.password, 10),
-            role: '6512c4c6185c0a6bf02b2c65'
+            role: req.body.roleId
         });
         if (dataSave) {
             return responseWithoutData(res, 200, true, "User has been added Successfully!!");

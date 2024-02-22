@@ -18,8 +18,9 @@ import { assignPermissionsToRole, getPermissionByRole } from "../controllers/adm
 import { addAndUpdateValue, addType, getSettings } from "../controllers/admin/settingController.js";
 import Setting from "../models/Setting.js";
 import User from "../models/User.js";
+import Role from "../models/Role.js";
 import { createUser, creditDebitList, creditDebitUser, deleteUser, listUser, updateUser, userDetails } from "../controllers/admin/userController.js";
-import { createVendor, listVendor } from "../controllers/admin/vendorController.js";
+// import { createVendor, listVendor } from "../controllers/admin/vendorController.js";
 import expressGroupRoutes from 'express-group-routes';
 
 /***************************
@@ -165,6 +166,16 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
         return true;
       } 
     }),
+    body('role').notEmpty().withMessage('role field is required')
+    .custom(async (role) => {
+      console.log(role);
+      const checkExists = await Role.findOne({id:role,isDeleted:false});
+      if (!checkExists) {
+        throw new Error("Invalid role, please enter the correct role");
+      } else {
+        return true;
+      } 
+    }),
   ], adminValiation, createUser);
 
   adminAuthRoute.get('/', listUser);
@@ -248,124 +259,124 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
 
 
 /************************  VENDOR CRUD ROUTES START ************************/
-adminAuthRoute.group("/vendor", (adminAuthRoute) => {
-  adminAuthRoute.post('/create', [
-    body('name').notEmpty().withMessage('name field is required'),
-    body('email').notEmpty().withMessage('email field is required')
-    .custom(async (email) => {
-      const checkExists = await User.findOne({email:email,isDeleted:false});
-      if (checkExists) {
-        throw new Error("email already in Exist");
-      } else {
-        return true;
-      } 
-    }),
-    body('mobile').notEmpty().withMessage('mobile field is required')
-    .custom(async (mobile) => {
-      const checkExists = await User.findOne({mobile:mobile,isDeleted:false});
-      if (checkExists) {
-        throw new Error("mobile already in Exist");
-      } else {
-        return true;
-      } 
-    }),
-    body('password').notEmpty().withMessage('password field is required'),
-    body('pan').notEmpty().withMessage('pan field is required')
-    .custom(async (pan) => {
-      const checkExists = await User.findOne({pan:pan,isDeleted:false});
-      if (checkExists) {
-        throw new Error("pan already in Exist");
-      } else {
-        return true;
-      } 
-    }),
-    body('aadhar').notEmpty().withMessage('aadhar field is required')
-    .custom(async (aadhar) => {
-      const checkExists = await User.findOne({aadhar:aadhar,isDeleted:false});
-      if (checkExists) {
-        throw new Error("aadhar already in Exist");
-      } else {
-        return true;
-      } 
-    }),
-  ], adminValiation, createVendor);
+// adminAuthRoute.group("/vendor", (adminAuthRoute) => {
+//   adminAuthRoute.post('/create', [
+//     body('name').notEmpty().withMessage('name field is required'),
+//     body('email').notEmpty().withMessage('email field is required')
+//     .custom(async (email) => {
+//       const checkExists = await User.findOne({email:email,isDeleted:false});
+//       if (checkExists) {
+//         throw new Error("email already in Exist");
+//       } else {
+//         return true;
+//       } 
+//     }),
+//     body('mobile').notEmpty().withMessage('mobile field is required')
+//     .custom(async (mobile) => {
+//       const checkExists = await User.findOne({mobile:mobile,isDeleted:false});
+//       if (checkExists) {
+//         throw new Error("mobile already in Exist");
+//       } else {
+//         return true;
+//       } 
+//     }),
+//     body('password').notEmpty().withMessage('password field is required'),
+//     body('pan').notEmpty().withMessage('pan field is required')
+//     .custom(async (pan) => {
+//       const checkExists = await User.findOne({pan:pan,isDeleted:false});
+//       if (checkExists) {
+//         throw new Error("pan already in Exist");
+//       } else {
+//         return true;
+//       } 
+//     }),
+//     body('aadhar').notEmpty().withMessage('aadhar field is required')
+//     .custom(async (aadhar) => {
+//       const checkExists = await User.findOne({aadhar:aadhar,isDeleted:false});
+//       if (checkExists) {
+//         throw new Error("aadhar already in Exist");
+//       } else {
+//         return true;
+//       } 
+//     }),
+//   ], adminValiation, createVendor);
 
-  adminAuthRoute.get('/', listVendor);
+//   adminAuthRoute.get('/', listVendor);
 
-  // adminAuthRoute.post('/get-details'),
-  // [
-  //   body('id').notEmpty().withMessage('email field is required')
-  // ],
-  // adminValiation,
-  //  userDetails);
+//   // adminAuthRoute.post('/get-details'),
+//   // [
+//   //   body('id').notEmpty().withMessage('email field is required')
+//   // ],
+//   // adminValiation,
+//   //  userDetails);
 
-  // adminAuthRoute.put('/update', [
-  //   body('id').notEmpty().withMessage('id field is required'),
-  //   body('name').notEmpty().withMessage('name field is required'),
-  //   body('email').notEmpty().withMessage('email field is required')
-  //   .custom(async (email,{ req }) => {
-  //     const checkExists = await User.findOne({email:email,isDelete:false,_id:{$ne:req?.body?.id}});
-  //     if (checkExists) {
-  //       throw new Error("email already in Exist");
-  //     } else {
-  //       return true;
-  //     } 
-  //   }),
-  //   body('mobile').notEmpty().withMessage('mobile field is required')
-  //   .custom(async (mobile,{ req }) => {
-  //     const checkExists = await User.findOne({mobile:mobile,isDelete:false,_id:{$ne:req?.body?.id}});
-  //     if (checkExists) {
-  //       throw new Error("mobile already in Exist");
-  //     } else {
-  //       return true;
-  //     } 
-  //   }),
-  //   body('password').notEmpty().withMessage('password field is required'),
-  //   body('pan').notEmpty().withMessage('pan field is required')
-  //   .custom(async (pan,{ req }) => {
-  //     const checkExists = await User.findOne({pan:pan,isDelete:false,_id:{$ne:req?.body?.id}});
-  //     if (checkExists) {
-  //       throw new Error("pan already in Exist");
-  //     } else {
-  //       return true;
-  //     } 
-  //   }),
-  //   body('aadhar').notEmpty().withMessage('aadhar field is required')
-  //   .custom(async (aadhar,{ req }) => {
-  //     const checkExists = await User.findOne({aadhar:aadhar,isDelete:false,_id:{$ne:req?.body?.id}});
-  //     if (checkExists) {
-  //       throw new Error("aadhar already in Exist");
-  //     } else {
-  //       return true;
-  //     } 
-  //   }),
-  // ], adminValiation, updateUser);
+//   // adminAuthRoute.put('/update', [
+//   //   body('id').notEmpty().withMessage('id field is required'),
+//   //   body('name').notEmpty().withMessage('name field is required'),
+//   //   body('email').notEmpty().withMessage('email field is required')
+//   //   .custom(async (email,{ req }) => {
+//   //     const checkExists = await User.findOne({email:email,isDelete:false,_id:{$ne:req?.body?.id}});
+//   //     if (checkExists) {
+//   //       throw new Error("email already in Exist");
+//   //     } else {
+//   //       return true;
+//   //     } 
+//   //   }),
+//   //   body('mobile').notEmpty().withMessage('mobile field is required')
+//   //   .custom(async (mobile,{ req }) => {
+//   //     const checkExists = await User.findOne({mobile:mobile,isDelete:false,_id:{$ne:req?.body?.id}});
+//   //     if (checkExists) {
+//   //       throw new Error("mobile already in Exist");
+//   //     } else {
+//   //       return true;
+//   //     } 
+//   //   }),
+//   //   body('password').notEmpty().withMessage('password field is required'),
+//   //   body('pan').notEmpty().withMessage('pan field is required')
+//   //   .custom(async (pan,{ req }) => {
+//   //     const checkExists = await User.findOne({pan:pan,isDelete:false,_id:{$ne:req?.body?.id}});
+//   //     if (checkExists) {
+//   //       throw new Error("pan already in Exist");
+//   //     } else {
+//   //       return true;
+//   //     } 
+//   //   }),
+//   //   body('aadhar').notEmpty().withMessage('aadhar field is required')
+//   //   .custom(async (aadhar,{ req }) => {
+//   //     const checkExists = await User.findOne({aadhar:aadhar,isDelete:false,_id:{$ne:req?.body?.id}});
+//   //     if (checkExists) {
+//   //       throw new Error("aadhar already in Exist");
+//   //     } else {
+//   //       return true;
+//   //     } 
+//   //   }),
+//   // ], adminValiation, updateUser);
 
-  // adminAuthRoute.delete('/delete/:id',deleteUser);
+//   // adminAuthRoute.delete('/delete/:id',deleteUser);
 
-  // adminAuthRoute.post('/credit-debit-user', [
-  //   body('userId').notEmpty().withMessage('userId field is required'),
-  //   body('amount').notEmpty().withMessage('amount field is required')
-  //   .custom(async (amount) => {
-  //     if(Number(amount) > 0) {
-  //       return true;
-  //     } 
-  //     throw new Error("amount must be grater than 0!!");
-  //   }),
-  //   body('type').notEmpty().withMessage('type field is required')
-  //   .custom(async (type) => {
-  //     if(type == 'credit' || type == 'debit') {
-  //       return true;
-  //     } 
-  //     throw new Error("type must be credit or debit!!");
-  //   }),
-  // ], adminValiation, creditDebitUser);
+//   // adminAuthRoute.post('/credit-debit-user', [
+//   //   body('userId').notEmpty().withMessage('userId field is required'),
+//   //   body('amount').notEmpty().withMessage('amount field is required')
+//   //   .custom(async (amount) => {
+//   //     if(Number(amount) > 0) {
+//   //       return true;
+//   //     } 
+//   //     throw new Error("amount must be grater than 0!!");
+//   //   }),
+//   //   body('type').notEmpty().withMessage('type field is required')
+//   //   .custom(async (type) => {
+//   //     if(type == 'credit' || type == 'debit') {
+//   //       return true;
+//   //     } 
+//   //     throw new Error("type must be credit or debit!!");
+//   //   }),
+//   // ], adminValiation, creditDebitUser);
 
-  // adminAuthRoute.post('/credit-debit-list', [
-  //   // body('userId').notEmpty().withMessage('userId field is required'),
-  // ], adminValiation, creditDebitList);
+//   // adminAuthRoute.post('/credit-debit-list', [
+//   //   // body('userId').notEmpty().withMessage('userId field is required'),
+//   // ], adminValiation, creditDebitList);
   
-});
+// });
 /************************  USER CRUD ROUTES END ************************/
 
 
