@@ -130,7 +130,7 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
     body('name').notEmpty().withMessage('name field is required'),
     body('email').notEmpty().withMessage('email field is required')
     .custom(async (email) => {
-      const checkExists = await User.findOne({email:email,isDelete:false});
+      const checkExists = await User.findOne({email:email,isDeleted:false});
       if (checkExists) {
         throw new Error("email already in Exist");
       } else {
@@ -139,7 +139,7 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
     }),
     body('mobile').notEmpty().withMessage('mobile field is required')
     .custom(async (mobile) => {
-      const checkExists = await User.findOne({mobile:mobile,isDelete:false});
+      const checkExists = await User.findOne({mobile:mobile,isDeleted:false});
       if (checkExists) {
         throw new Error("mobile already in Exist");
       } else {
@@ -149,7 +149,7 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
     body('password').notEmpty().withMessage('password field is required'),
     body('pan').notEmpty().withMessage('pan field is required')
     .custom(async (pan) => {
-      const checkExists = await User.findOne({pan:pan,isDelete:false});
+      const checkExists = await User.findOne({pan:pan,isDeleted:false});
       if (checkExists) {
         throw new Error("pan already in Exist");
       } else {
@@ -158,7 +158,7 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
     }),
     body('aadhar').notEmpty().withMessage('aadhar field is required')
     .custom(async (aadhar) => {
-      const checkExists = await User.findOne({aadhar:aadhar,isDelete:false});
+      const checkExists = await User.findOne({aadhar:aadhar,isDeleted:false});
       if (checkExists) {
         throw new Error("aadhar already in Exist");
       } else {
@@ -253,7 +253,7 @@ adminAuthRoute.group("/vendor", (adminAuthRoute) => {
     body('name').notEmpty().withMessage('name field is required'),
     body('email').notEmpty().withMessage('email field is required')
     .custom(async (email) => {
-      const checkExists = await User.findOne({email:email,isDelete:false});
+      const checkExists = await User.findOne({email:email,isDeleted:false});
       if (checkExists) {
         throw new Error("email already in Exist");
       } else {
@@ -262,7 +262,7 @@ adminAuthRoute.group("/vendor", (adminAuthRoute) => {
     }),
     body('mobile').notEmpty().withMessage('mobile field is required')
     .custom(async (mobile) => {
-      const checkExists = await User.findOne({mobile:mobile,isDelete:false});
+      const checkExists = await User.findOne({mobile:mobile,isDeleted:false});
       if (checkExists) {
         throw new Error("mobile already in Exist");
       } else {
@@ -272,7 +272,7 @@ adminAuthRoute.group("/vendor", (adminAuthRoute) => {
     body('password').notEmpty().withMessage('password field is required'),
     body('pan').notEmpty().withMessage('pan field is required')
     .custom(async (pan) => {
-      const checkExists = await User.findOne({pan:pan,isDelete:false});
+      const checkExists = await User.findOne({pan:pan,isDeleted:false});
       if (checkExists) {
         throw new Error("pan already in Exist");
       } else {
@@ -281,7 +281,7 @@ adminAuthRoute.group("/vendor", (adminAuthRoute) => {
     }),
     body('aadhar').notEmpty().withMessage('aadhar field is required')
     .custom(async (aadhar) => {
-      const checkExists = await User.findOne({aadhar:aadhar,isDelete:false});
+      const checkExists = await User.findOne({aadhar:aadhar,isDeleted:false});
       if (checkExists) {
         throw new Error("aadhar already in Exist");
       } else {
