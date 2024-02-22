@@ -87,7 +87,6 @@ export const updateUser = async (req, res) => {
         let dataSave = await User.findByIdAndUpdate(req?.body?.id, {
             ...req?.body,
             password: userInfo.password,
-            role: '6512c4c6185c0a6bf02b2c65'
         });
         if (dataSave) {
             return responseWithoutData(res, 200, true, "User has been updated Successfully!!");
