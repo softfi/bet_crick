@@ -60,12 +60,15 @@ export const userDetails = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        if (!(await User.findById(req?.body?.id))) {
+        console.log("--------------------------");
+        const userInfo = await User.findOne({_id:req?.body?.id, isDeleted:false});
+
+        if (!userInfo) {
             return responseWithoutData(res, 201, false, "Invalid user Id!!");
         }
         let dataSave = await User.findByIdAndUpdate(req?.body?.id, {
             ...req?.body,
-            password: await bcrypt.hash(req?.body?.password, 10),
+            password: userInfo.password,
             role: '6512c4c6185c0a6bf02b2c65'
         });
         if (dataSave) {
