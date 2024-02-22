@@ -49,9 +49,7 @@ userAuthRoute.put('/profile',[
 
 
 // By New
-userAuthRoute.post('/get-profile',[
-  body('id', 'id field is required').notEmpty()
-],userValidation, getProfile); 
+userAuthRoute.get('/get-profile', getProfile); 
 
 userAuthRoute.post('/change-password',[
   body('currentPassword', 'currentPassword field is required').notEmpty(),

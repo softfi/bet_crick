@@ -35,15 +35,15 @@ export const getProfile = async (req, res) => {
             return responseWithoutData(res, 201, false, "Invalid User or session is invalid!");
         }
 
-        let userDetails = "";
-        try {
-            userDetails = await User.findById(req.body.id);
-        } catch (err) {
-            return responseWithoutData(res, 401, false, "Invalid user id");
-        }
+        // let userDetails = "";
+        // try {
+        //     userDetails = await User.findById(req.body.id);
+        // } catch (err) {
+        //     return responseWithoutData(res, 401, false, "Invalid user id");
+        // }
 
-        userDetails.password = "";
-        return responseWithData(res, 200, true, "User Details get Successfully!!", userDetails);
+        customer.password = "";
+        return responseWithData(res, 200, true, "User Details get Successfully!!", customer);
     } catch (error) {
         errorLog(error);
         errorResponse(res);
