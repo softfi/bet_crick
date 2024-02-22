@@ -130,7 +130,6 @@ export const creditDebitUser = async (req, res) => {
             previousAmount: (checkUser?.walletBalance) ? checkUser?.walletBalance : 0,
             amount: req?.body?.amount,
             type: req?.body?.type,
-            roleType:checkUser?.type || "",
             transactionId: req?.body?.transactionId,
             status: "success",
             remarks: req?.body?.remarks,

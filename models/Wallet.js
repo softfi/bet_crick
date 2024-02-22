@@ -5,7 +5,6 @@ const walletSchema = Schema({
     previousAmount  : { type : Number, index: true },
     amount          : { type : Number, index: true },
     type            : { type : String, index: true },
-    roleType            : { type : String, index: true },
     transactionId   : { type : String, index: true, default: '' },
     status          : { type : String, index: true },
     remarks         : { type : String, index: true, default: '' },
