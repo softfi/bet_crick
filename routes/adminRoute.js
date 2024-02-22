@@ -19,7 +19,7 @@ import { addAndUpdateValue, addType, getSettings } from "../controllers/admin/se
 import Setting from "../models/Setting.js";
 import User from "../models/User.js";
 import { createUser, creditDebitList, creditDebitUser, deleteUser, listUser, updateUser, userDetails } from "../controllers/admin/userController.js";
-import { createVendor } from "../controllers/admin/vendorController.js";
+import { createVendor, listVendor } from "../controllers/admin/vendorController.js";
 import expressGroupRoutes from 'express-group-routes';
 
 /***************************
@@ -290,9 +290,9 @@ adminAuthRoute.group("/vendor", (adminAuthRoute) => {
     }),
   ], adminValiation, createVendor);
 
-  // adminAuthRoute.get('/', listUser);
+  adminAuthRoute.get('/', listVendor);
 
-  // adminAuthRoute.post('/get-details',
+  // adminAuthRoute.post('/get-details'),
   // [
   //   body('id').notEmpty().withMessage('email field is required')
   // ],
