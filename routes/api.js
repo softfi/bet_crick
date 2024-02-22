@@ -2,9 +2,11 @@ import express from "express";
 import cors from "cors";
 import { userAuthRoute, userRoute } from "./userRoute.js";
 import { adminAuthRoute, adminRoute } from "./adminRoute.js";
+import { vendorAuthRoute } from "./vendorRoute.js";
 import { webRoute } from "./webRoute.js";
 import { userAuthentication } from "../middlewares/userAuthentication.js";
 import { adminAuthentication } from "../middlewares/adminAuthentication.js";
+import { vendorAuthentication } from "../middlewares/vendorAuthentication.js";
 import { errorResponse, getSignedUrl } from "../helpers/helper.js";
 import { body } from "express-validator";
 import { userValidation } from "../validation/userValidation.js";
@@ -33,6 +35,7 @@ api.use('/web', webRoute);
 ****************************/
 
 api.use('/admin', adminAuthentication, adminAuthRoute);
+api.use('/vendor', vendorAuthentication, vendorAuthRoute);
 api.use('/user', userAuthentication, userAuthRoute);
 
 

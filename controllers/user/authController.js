@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 
 export const userLogin = async (req, res) => {
     try {
-        let user = await User.findOne({ email: req?.body?.email, role: '6512c4c6185c0a6bf02b2c65' });
+        let user = await User.findOne({ email: req?.body?.email, role: '6512c4c6185c0a6bf02b2c65',isDeleted:false });
         if (user) {
             let comparePassword = await bcrypt.compare(req?.body?.password, user?.password);
             if (comparePassword) {

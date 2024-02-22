@@ -3,7 +3,7 @@ import { JWT_SECRET_TOKEN } from "../config/config.js";
 import { errorLog } from "../config/logger.js";
 import { authValues, errorResponse, responseWithoutData } from "../helpers/helper.js";
 
-export const adminAuthentication = (req, res, next) => {
+export const vendorAuthentication = (req, res, next) => {
     try {
         const token = req.headers['authorization'];
         if (!token) {
@@ -14,8 +14,7 @@ export const adminAuthentication = (req, res, next) => {
                 return res.status(401).send({ status: false, msg: "Token Expired" });
             }else{
                 var decoded = await authValues(token);
-                console.log(decoded);
-                if (decoded && decoded.role === "6512c4c1185c0a6bf02b2c61" && decoded.isDeleted === false) {
+                if (decoded && decoded.role === "656858d8c7c96b70a05f883d" && decoded.isDeleted === false) {
                     next();            
                 }else{
                     return res.status(401).send({ status: false, msg: "Invalid Token" });
@@ -26,5 +25,4 @@ export const adminAuthentication = (req, res, next) => {
         errorLog(err);
         errorResponse(res);
     }
-    // console.log("Decoded Token",decoded,"User Id:",decoded._id);
 }
