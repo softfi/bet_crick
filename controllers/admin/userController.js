@@ -40,7 +40,7 @@ export const listUser = async (req, res) => {
 
         }else{
 
-            datas = await User.find({ isDeleted: false }).select("-password");
+            datas = await User.find({ isDeleted: false,type:{$ne:"admin"} }).select("-password");
         }
 
         let lists = [];
