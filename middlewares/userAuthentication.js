@@ -23,15 +23,17 @@ export const userAuthentication = (req, res, next) => {
                 if (decoded && decoded.role === "6512c4c6185c0a6bf02b2c65") {
                     // console.log(decoded);
                     if(decoded.isActive === true){
-                        if(decoded.isEmailVerify === true || decoded.isMobileVerify === true){
-                            next();
-                        }else{
-                            if(req.url === '/verify-otp' || req.url === '/resend-otp'){
-                                next();
-                            }else{
-                                return res.status(401).send({ status:false, msg: "Please Verify Your Email Id Or Mobile No" });
-                            }
-                        }     
+                        // if(decoded.isEmailVerify === true || decoded.isMobileVerify === true){
+                        //     next();
+                        // }else{
+                        //     if(req.url === '/verify-otp' || req.url === '/resend-otp'){
+                        //         next();
+                        //     }else{
+                        //         return res.status(401).send({ status:false, msg: "Please Verify Your Email Id Or Mobile No" });
+                        //     }
+                        // } 
+                        
+                        next();
                     }else{
                         return res.status(401).send({ status: false, msg: "User is Inactive Please Contact Us" });
                     }
