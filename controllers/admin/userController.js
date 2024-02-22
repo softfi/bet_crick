@@ -7,12 +7,14 @@ import Wallet from "../../models/Wallet.js";
 export const createUser = async (req, res) => {
     try {
         let whoAmI = await authValues(req.headers['authorization']);
+        const roleInfo = await Role.findOne({_id:role,isDeleted:false});
 
         let dataSave = await User.create({
             ...req?.body,
             password: await bcrypt.hash(req.body.password, 10),
             role: req.body.roleId,
-            createdBy: whoAmI?.email
+            createdBy: whoAmI?.email,
+            type:roleInfo.name
         });
         
         if (dataSave) {

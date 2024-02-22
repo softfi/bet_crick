@@ -6,14 +6,14 @@ import Wallet from "../../models/Wallet.js";
 
 export const createCustomer = async (req, res) => {
     try {
-
         let whoAmI = await authValues(req.headers['authorization']);
 
         let dataSave = await User.create({
             ...req?.body,
             password: await bcrypt.hash(req.body.password, 10),
             role: '6512c4c6185c0a6bf02b2c65',
-            createdBy: whoAmI?.email
+            createdBy: whoAmI?.email,
+            type:"customer"
         });
         if (dataSave) {
             return responseWithoutData(res, 200, true, "User has been added Successfully!!");
