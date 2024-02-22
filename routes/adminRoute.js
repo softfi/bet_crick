@@ -166,7 +166,7 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
         return true;
       } 
     }),
-    body('role').notEmpty().withMessage('role field is required')
+    body('roleId').notEmpty().withMessage('role field is required')
     .custom(async (role) => {
       console.log(role);
       const checkExists = await Role.findOne({_id:role,isDeleted:false});
