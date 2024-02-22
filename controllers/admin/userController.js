@@ -1,17 +1,20 @@
 import { errorLog } from "../../config/logger.js";
 import bcrypt from "bcrypt";
-import { errorResponse, getImageSingedUrlById, responseWithData, responseWithoutData } from "../../helpers/helper.js";
+import { authValues, errorResponse, getImageSingedUrlById, responseWithData, responseWithoutData } from "../../helpers/helper.js";
 import User from "../../models/User.js";
 import Wallet from "../../models/Wallet.js";
 
 export const createUser = async (req, res) => {
     try {
+        let whoAmI = await authValues(req.headers['authorization']);
 
         let dataSave = await User.create({
             ...req?.body,
             password: await bcrypt.hash(req.body.password, 10),
-            role: req.body.roleId
+            role: req.body.roleId,
+            createdBy: whoAmI?.email
         });
+        
         if (dataSave) {
             return responseWithoutData(res, 200, true, "User has been added Successfully!!");
         } else {
@@ -25,7 +28,18 @@ export const createUser = async (req, res) => {
 
 export const listUser = async (req, res) => {
     try {
-        let datas = await User.find({ isDeleted: false, role: "6512c4c6185c0a6bf02b2c65" });
+
+        let datas = [];
+
+        if(req.body.role){
+
+            datas = await User.find({ isDeleted: false, role: req.body.role }).select("-password");
+
+        }else{
+
+            datas = await User.find({ isDeleted: false }).select("-password");
+        }
+
         let lists = [];
         for (let data of datas) {
             lists.push({

@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { userAuthRoute, userRoute } from "./userRoute.js";
 import { adminAuthRoute, adminRoute } from "./adminRoute.js";
-import { vendorAuthRoute } from "./vendorRoute.js";
+import { vendorAuthRoute, vendorRoute } from "./vendorRoute.js";
 import { webRoute } from "./webRoute.js";
 import { userAuthentication } from "../middlewares/userAuthentication.js";
 import { adminAuthentication } from "../middlewares/adminAuthentication.js";
@@ -27,6 +27,7 @@ api.use(cors({
 ****************************/
 
 api.use('/admin', adminRoute);
+api.use('/vendor', vendorRoute);
 api.use('/user', userRoute);
 api.use('/web', webRoute);
 

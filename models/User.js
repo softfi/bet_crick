@@ -18,6 +18,7 @@ const userSchema = Schema({
     isMobileVerify  : { type: Boolean, default: false },
     isActive        : { type:Boolean, default: true },
     isDeleted       : { type:Boolean, default: false },
+    createdBy       : { type:String},
 },{timestamps:true});
 
 

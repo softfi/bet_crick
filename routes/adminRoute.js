@@ -166,10 +166,10 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
         return true;
       } 
     }),
-    body('roleId').notEmpty().withMessage('role field is required')
+    body('roleId').notEmpty().withMessage('roleId field is required')
     .custom(async (role) => {
-      console.log(role);
       const checkExists = await Role.findOne({_id:role,isDeleted:false});
+      
       if (!checkExists) {
         throw new Error("Invalid role, please enter the correct role");
       } else {
@@ -178,7 +178,7 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
     }),
   ], adminValiation, createUser);
 
-  adminAuthRoute.get('/', listUser);
+  adminAuthRoute.post('/', listUser);
 
   adminAuthRoute.post('/get-details',
   [

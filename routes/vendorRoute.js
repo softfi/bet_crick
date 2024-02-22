@@ -1,27 +1,28 @@
 import express from "express";
 import { body } from "express-validator";
+export const vendorRoute = express.Router();
 export const vendorAuthRoute = express.Router();
 
 /***************************
         CUSTOM IMPORTS
  ****************************/
-import { adminValiation, uploadImageValdator } from "../validation/adminValidation.js";
+import { vendorValiation } from "../validation/vendorValidation.js";
 import { adminLogin } from "../controllers/admin/authController.js";
 import User from "../models/User.js";
-import { createUser, creditDebitList, creditDebitUser, deleteUser, listUser, updateUser, userDetails } from "../controllers/admin/userController.js";
+import { createCustomer, listCustomer,customerDetails, updateCustomer, deleteCustomer } from "../controllers/vendor/userController.js";
 import expressGroupRoutes from 'express-group-routes';
+import { vendorLogin } from "../controllers/vendor/authController.js";
 
 /***************************
         Vendor Login
 ***************************/
 
-vendorAuthRoute.post('/login', 
+vendorRoute.post('/login', 
   [
     body('email', 'Email field is Required').notEmpty().isEmail(),
     body('password', 'Password field is Required').notEmpty()
   ], 
-  adminValiation,
-  adminLogin
+  vendorLogin
 );
 
 
@@ -31,12 +32,12 @@ vendorAuthRoute.post('/login',
 
 
 /************************  USER CRUD ROUTES START ************************/
-vendorAuthRoute.group("/vendor", (vendorAuthRoute) => {
+vendorAuthRoute.group("/customer", (vendorAuthRoute) => {
   vendorAuthRoute.post('/create', [
     body('name').notEmpty().withMessage('name field is required'),
     body('email').notEmpty().withMessage('email field is required')
     .custom(async (email) => {
-      const checkExists = await User.findOne({email:email,isDelete:false});
+      const checkExists = await User.findOne({email:email,isDeleted:false});
       if (checkExists) {
         throw new Error("email already in Exist");
       } else {
@@ -45,7 +46,7 @@ vendorAuthRoute.group("/vendor", (vendorAuthRoute) => {
     }),
     body('mobile').notEmpty().withMessage('mobile field is required')
     .custom(async (mobile) => {
-      const checkExists = await User.findOne({mobile:mobile,isDelete:false});
+      const checkExists = await User.findOne({mobile:mobile,isDeleted:false});
       if (checkExists) {
         throw new Error("mobile already in Exist");
       } else {
@@ -55,7 +56,7 @@ vendorAuthRoute.group("/vendor", (vendorAuthRoute) => {
     body('password').notEmpty().withMessage('password field is required'),
     body('pan').notEmpty().withMessage('pan field is required')
     .custom(async (pan) => {
-      const checkExists = await User.findOne({pan:pan,isDelete:false});
+      const checkExists = await User.findOne({pan:pan,isDeleted:false});
       if (checkExists) {
         throw new Error("pan already in Exist");
       } else {
@@ -64,23 +65,23 @@ vendorAuthRoute.group("/vendor", (vendorAuthRoute) => {
     }),
     body('aadhar').notEmpty().withMessage('aadhar field is required')
     .custom(async (aadhar) => {
-      const checkExists = await User.findOne({aadhar:aadhar,isDelete:false});
+      const checkExists = await User.findOne({aadhar:aadhar,isDeleted:false});
       if (checkExists) {
         throw new Error("aadhar already in Exist");
       } else {
         return true;
       } 
     }),
-  ], adminValiation, createUser);
+  ], vendorValiation, createCustomer);
 
-  vendorAuthRoute.get('/', listUser);
+  vendorAuthRoute.get('/', listCustomer);
 
   vendorAuthRoute.post('/get-details',
   [
-    body('id').notEmpty().withMessage('email field is required')
+    body('id').notEmpty().withMessage('id field is required')
   ],
-  adminValiation,
-   userDetails);
+  vendorValiation,
+  customerDetails);
 
   vendorAuthRoute.put('/update', [
     body('id').notEmpty().withMessage('id field is required'),
@@ -122,31 +123,31 @@ vendorAuthRoute.group("/vendor", (vendorAuthRoute) => {
         return true;
       } 
     }),
-  ], adminValiation, updateUser);
+  ], vendorValiation, updateCustomer);
 
-  vendorAuthRoute.delete('/delete/:id',deleteUser);
+  vendorAuthRoute.delete('/delete/:id',deleteCustomer);
 
-  vendorAuthRoute.post('/credit-debit-user', [
-    body('userId').notEmpty().withMessage('userId field is required'),
-    body('amount').notEmpty().withMessage('amount field is required')
-    .custom(async (amount) => {
-      if(Number(amount) > 0) {
-        return true;
-      } 
-      throw new Error("amount must be grater than 0!!");
-    }),
-    body('type').notEmpty().withMessage('type field is required')
-    .custom(async (type) => {
-      if(type == 'credit' || type == 'debit') {
-        return true;
-      } 
-      throw new Error("type must be credit or debit!!");
-    }),
-  ], adminValiation, creditDebitUser);
+  // vendorAuthRoute.post('/credit-debit-user', [
+  //   body('userId').notEmpty().withMessage('userId field is required'),
+  //   body('amount').notEmpty().withMessage('amount field is required')
+  //   .custom(async (amount) => {
+  //     if(Number(amount) > 0) {
+  //       return true;
+  //     } 
+  //     throw new Error("amount must be grater than 0!!");
+  //   }),
+  //   body('type').notEmpty().withMessage('type field is required')
+  //   .custom(async (type) => {
+  //     if(type == 'credit' || type == 'debit') {
+  //       return true;
+  //     } 
+  //     throw new Error("type must be credit or debit!!");
+  //   }),
+  // ], adminValiation, creditDebitUser);
 
-  vendorAuthRoute.post('/credit-debit-list', [
-    // body('userId').notEmpty().withMessage('userId field is required'),
-  ], adminValiation, creditDebitList);
+  // vendorAuthRoute.post('/credit-debit-list', [
+  //   // body('userId').notEmpty().withMessage('userId field is required'),
+  // ], adminValiation, creditDebitList);
   
 });
 /************************  USER CRUD ROUTES END ************************/
