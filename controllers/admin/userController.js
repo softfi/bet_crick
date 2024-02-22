@@ -8,7 +8,7 @@ import Wallet from "../../models/Wallet.js";
 export const createUser = async (req, res) => {
     try {
         let whoAmI = await authValues(req.headers['authorization']);
-        const roleInfo = await Role.findOne({_id:role,isDeleted:false});
+        const roleInfo = await Role.findOne({_id:req.body.roleId,isDeleted:false});
 
         let dataSave = await User.create({
             ...req?.body,
