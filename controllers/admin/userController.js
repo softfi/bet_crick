@@ -2,6 +2,7 @@ import { errorLog } from "../../config/logger.js";
 import bcrypt from "bcrypt";
 import { authValues, errorResponse, getImageSingedUrlById, responseWithData, responseWithoutData } from "../../helpers/helper.js";
 import User from "../../models/User.js";
+import Role from "../../models/Role.js";
 import Wallet from "../../models/Wallet.js";
 
 export const createUser = async (req, res) => {
