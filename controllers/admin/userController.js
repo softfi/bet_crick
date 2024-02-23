@@ -14,7 +14,7 @@ export const createUser = async (req, res) => {
             ...req?.body,
             password: await bcrypt.hash(req.body.password, 10),
             role: req.body.roleId,
-            createdBy: whoAmI?.email,
+            createdBy: whoAmI?._id,
             type:roleInfo.name
         });
         
@@ -118,6 +118,7 @@ export const deleteUser = async (req, res) => {
 
 export const creditDebitUser = async (req, res) => {
     try {
+        let whoAmI = await authValues(req.headers['authorization']);
         let checkUser = await User.findById(req?.body?.userId);
         if (!checkUser) {
             return responseWithoutData(res, 201, false, "Invalid user Id!!");
@@ -134,6 +135,7 @@ export const creditDebitUser = async (req, res) => {
             status: "success",
             remarks: req?.body?.remarks,
             addedBy: "admin",
+            addedById: whoAmI._id,
         });
         if (dataSave) {
             if (dataSave?.type == 'credit') {
@@ -153,6 +155,11 @@ export const creditDebitUser = async (req, res) => {
 
 export const creditDebitList = async (req, res) => {
     try {
+        // let roleFilter = req?.params?.roleId || "";
+        // let roleName = await Role.findOne({id:roleFilter, isDeleted:false});
+
+        // console.log(roleName)
+
         let datas = await Wallet.find({ isActive: true });
         let lists = [];
         for (let data of datas) {
@@ -176,7 +183,6 @@ export const creditDebitList = async (req, res) => {
     }
 }
 
-
 export const specificUserListByVendor = async (req, res) => {
     try {
         let userInfo = await User.findOne({ _id: req?.body?.vendorId,role:"656858d8c7c96b70a05f883d", isDeleted: false });
@@ -185,7 +191,7 @@ export const specificUserListByVendor = async (req, res) => {
             return responseWithoutData(res, 400, false, "Invalid vendor id!");
         }
 
-        let userData = await User.find({createdBy:userInfo.email,role:"6512c4c6185c0a6bf02b2c65",isDeleted: false});
+        let userData = await User.find({createdBy:userInfo._id,role:"6512c4c6185c0a6bf02b2c65",isDeleted: false});
         
         if (userData.length > 0) {
             return responseWithData(res, 200, true, "Customer list fetched successfully", userData);

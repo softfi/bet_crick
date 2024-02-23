@@ -9,7 +9,7 @@ export const vendorAuthRoute = express.Router();
 import { vendorValiation } from "../validation/vendorValidation.js";
 import { adminLogin } from "../controllers/admin/authController.js";
 import User from "../models/User.js";
-import { createCustomer, listCustomer,customerDetails, updateCustomer, deleteCustomer } from "../controllers/vendor/userController.js";
+import { createCustomer, listCustomer,customerDetails, updateCustomer, deleteCustomer, creditDebitCustomer,creditDebitListByVendor } from "../controllers/vendor/userController.js";
 import expressGroupRoutes from 'express-group-routes';
 import { vendorLogin } from "../controllers/vendor/authController.js";
 
@@ -127,27 +127,25 @@ vendorAuthRoute.group("/customer", (vendorAuthRoute) => {
 
   vendorAuthRoute.delete('/delete/:id',deleteCustomer);
 
-  // vendorAuthRoute.post('/credit-debit-user', [
-  //   body('userId').notEmpty().withMessage('userId field is required'),
-  //   body('amount').notEmpty().withMessage('amount field is required')
-  //   .custom(async (amount) => {
-  //     if(Number(amount) > 0) {
-  //       return true;
-  //     } 
-  //     throw new Error("amount must be grater than 0!!");
-  //   }),
-  //   body('type').notEmpty().withMessage('type field is required')
-  //   .custom(async (type) => {
-  //     if(type == 'credit' || type == 'debit') {
-  //       return true;
-  //     } 
-  //     throw new Error("type must be credit or debit!!");
-  //   }),
-  // ], adminValiation, creditDebitUser);
+  vendorAuthRoute.post('/credit-debit', [
+    body('userId').notEmpty().withMessage('userId field is required'),
+    body('amount').notEmpty().withMessage('amount field is required')
+    .custom(async (amount) => {
+      if(Number(amount) > 0) {
+        return true;
+      } 
+      throw new Error("amount must be grater than 0!!");
+    }),
+    body('type').notEmpty().withMessage('type field is required')
+    .custom(async (type) => {
+      if(type == 'credit' || type == 'debit') {
+        return true;
+      } 
+      throw new Error("type must be credit or debit!!");
+    }),
+  ], vendorValiation, creditDebitCustomer);
 
-  // vendorAuthRoute.post('/credit-debit-list', [
-  //   // body('userId').notEmpty().withMessage('userId field is required'),
-  // ], adminValiation, creditDebitList);
+  vendorAuthRoute.get('/credit-debit-list', creditDebitListByVendor);
   
 });
 /************************  USER CRUD ROUTES END ************************/

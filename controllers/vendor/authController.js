@@ -9,7 +9,6 @@ export const vendorLogin = async (req, res) => {
 
         if (vendor) {
             let comparePassword = await bcrypt.compare(req.body.password, vendor.password);
-                
             if (comparePassword) {
                 return responseWithData(res,200,true,"Vendor Logged In Successfully",{...vendor._doc,token:getJwtToken(vendor._id)});
             } else {
