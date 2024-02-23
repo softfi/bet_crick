@@ -83,6 +83,8 @@ vendorAuthRoute.group("/customer", (vendorAuthRoute) => {
   vendorValiation,
   customerDetails);
 
+  
+
   vendorAuthRoute.put('/update', [
     body('id').notEmpty().withMessage('id field is required'),
     body('name').notEmpty().withMessage('name field is required'),
