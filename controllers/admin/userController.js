@@ -162,6 +162,7 @@ export const creditDebitList = async (req, res) => {
                 userName: userData?.name,
                 userMobile: userData?.mobile,
                 userEmail: userData?.email,
+                roleType: userData?.type || "",
             });
         }
         if (lists.length > 0) {

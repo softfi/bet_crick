@@ -252,6 +252,13 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
   adminAuthRoute.post('/credit-debit-list', [
     // body('userId').notEmpty().withMessage('userId field is required'),
   ], adminValiation, creditDebitList);
+
+  // adminAuthRoute.post('/get-specific-vendor-users',
+  // [
+  //   body('vendorId').notEmpty().withMessage('vendorId field is required')
+  // ],
+  // adminValiation,
+  //  userDetails);
   
 });
 /************************  USER CRUD ROUTES END ************************/
