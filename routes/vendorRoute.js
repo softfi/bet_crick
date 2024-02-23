@@ -104,7 +104,7 @@ vendorAuthRoute.group("/customer", (vendorAuthRoute) => {
         return true;
       } 
     }),
-    body('password').notEmpty().withMessage('password field is required'),
+    // body('password').notEmpty().withMessage('password field is required'),
     body('pan').notEmpty().withMessage('pan field is required')
     .custom(async (pan,{ req }) => {
       const checkExists = await User.findOne({pan:pan,isDelete:false,_id:{$ne:req?.body?.id}});
