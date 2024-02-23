@@ -19,7 +19,7 @@ import { addAndUpdateValue, addType, getSettings } from "../controllers/admin/se
 import Setting from "../models/Setting.js";
 import User from "../models/User.js";
 import Role from "../models/Role.js";
-import { createUser, creditDebitList, creditDebitUser, deleteUser, listUser, updateUser, userDetails } from "../controllers/admin/userController.js";
+import { createUser, creditDebitList, creditDebitUser, deleteUser, listUser, updateUser, userDetails,specificUserListByVendor } from "../controllers/admin/userController.js";
 // import { createVendor, listVendor } from "../controllers/admin/vendorController.js";
 import expressGroupRoutes from 'express-group-routes';
 
@@ -249,11 +249,12 @@ adminAuthRoute.group("/user", (adminAuthRoute) => {
     }),
   ], adminValiation, creditDebitUser);
 
-  adminAuthRoute.post('/credit-debit-list', [
-    // body('userId').notEmpty().withMessage('userId field is required'),
-  ], adminValiation, creditDebitList);
+  adminAuthRoute.get('/credit-debit-list', creditDebitList);
 
-  // adminAuthRoute.post('/get-specific-vendor-users',
+  adminAuthRoute.post('/get-specific-vendor-users',[
+    body('vendorId').notEmpty().withMessage('vendorId field is required'),
+  ],adminValiation,specificUserListByVendor);
+
   // [
   //   body('vendorId').notEmpty().withMessage('vendorId field is required')
   // ],

@@ -175,3 +175,25 @@ export const creditDebitList = async (req, res) => {
         errorResponse(res);
     }
 }
+
+
+export const specificUserListByVendor = async (req, res) => {
+    try {
+        let userInfo = await User.findOne({ _id: req?.body?.vendorId,role:"656858d8c7c96b70a05f883d", isDeleted: false });
+        
+        if(!userInfo){
+            return responseWithoutData(res, 400, false, "Invalid vendor id!");
+        }
+
+        let userData = await User.find({createdBy:userInfo.email,role:"6512c4c6185c0a6bf02b2c65",isDeleted: false});
+        
+        if (userData.length > 0) {
+            return responseWithData(res, 200, true, "Customer list fetched successfully", userData);
+        } else {
+            return responseWithoutData(res, 201, false, "No Record Found");
+        }
+    } catch (error) {
+        errorLog(error);
+        errorResponse(res);
+    }
+}
