@@ -12,7 +12,7 @@ export const createCustomer = async (req, res) => {
             ...req?.body,
             password: await bcrypt.hash(req.body.password, 10),
             role: '6512c4c6185c0a6bf02b2c65',
-            createdBy: whoAmI?._id,
+            createdBy: whoAmI?.id,
             type: "customer"
         });
         if (dataSave) {
@@ -31,7 +31,7 @@ export const listCustomer = async (req, res) => {
 
         let whoAmI = await authValues(req.headers['authorization']);
 
-        let datas = await User.find({ isDeleted: false, role: '6512c4c6185c0a6bf02b2c65', createdBy: whoAmI?._id }).select("-password");
+        let datas = await User.find({ isDeleted: false, role: '6512c4c6185c0a6bf02b2c65', createdBy: whoAmI?.id }).select("-password");
 
         let lists = [];
         for (let data of datas) {
@@ -72,7 +72,7 @@ export const updateCustomer = async (req, res) => {
     try {
         let whoAmI = await authValues(req.headers['authorization']);
 
-        const userInfo = await User.findOne({ _id: req?.body?.id, createdBy: whoAmI?._id, isDeleted: false });
+        const userInfo = await User.findOne({ _id: req?.body?.id, createdBy: whoAmI?.id, isDeleted: false });
 
         if (!userInfo) {
             return responseWithoutData(res, 201, false, "Invalid user Id!!");

@@ -14,7 +14,7 @@ export const createUser = async (req, res) => {
             ...req?.body,
             password: await bcrypt.hash(req.body.password, 10),
             role: req.body.roleId,
-            createdBy: whoAmI?._id,
+            createdBy: whoAmI?.id,
             type:roleInfo.name
         });
         
