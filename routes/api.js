@@ -12,6 +12,7 @@ import { body } from "express-validator";
 import { userValidation } from "../validation/userValidation.js";
 import Upload from "../models/Upload.js";
 import { errorLog } from "../config/logger.js";
+import { dataRoute } from "./matchesRoute.js";
 
 
 export const api = express.Router();
@@ -30,6 +31,7 @@ api.use('/admin', adminRoute);
 api.use('/vendor', vendorRoute);
 api.use('/user', userRoute);
 api.use('/web', webRoute);
+api.use('/data', dataRoute);
 
 /****************************
     AUTHENTICATED ROUTES
