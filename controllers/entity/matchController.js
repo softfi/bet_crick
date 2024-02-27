@@ -2,16 +2,9 @@ import { errorLog } from "../../config/logger.js";
 import { errorResponse, responseWithData, responseWithoutData } from "../../helpers/helper.js";
 import Match_List from "../../models/MatchList.js";
 import Match_Info from "../../models/MatchInfo.js";
-import { insertMatchList,insertMatchInfo } from "./DataSavingController.js";
-import fs from 'fs/promises';
 
 export const listMatches = async (req, res) => {
     try {
-        // const jsonData = await fs.readFile("./models/a.json", 'utf-8');
-        // const parsedData = JSON.parse(jsonData);
-        // parsedData.response.items.forEach((item)=>{
-        //     insertMatchList(item);
-        // })
         
         let data = await Match_List.find({});
 
