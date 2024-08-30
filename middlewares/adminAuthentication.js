@@ -14,8 +14,8 @@ export const adminAuthentication = (req, res, next) => {
                 return res.status(401).send({ status: false, msg: "Token Expired" });
             }else{
                 var decoded = await authValues(token);
-                console.log(decoded);
-                if (decoded && decoded.role === "6512c4c1185c0a6bf02b2c61" && decoded.isDeleted === false) {
+                // console.log(decoded);
+                if (decoded && decoded.isDeleted === false) {
                     next();            
                 }else{
                     return res.status(401).send({ status: false, msg: "Invalid Token" });

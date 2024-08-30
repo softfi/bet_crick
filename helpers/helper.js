@@ -5,6 +5,7 @@ import axios from "axios";
 import Upload from "../models/Upload.js";
 import Notification from "../models/Notification.js";
 import UserSetting from "../models/UserSetting.js";
+import bcrypt from 'bcrypt';
 
 export const getJwtToken = (userId) => {
     return jwt.sign({ userId }, JWT_SECRET_TOKEN, {
@@ -166,3 +167,9 @@ export const isCurrentTimeInRange = async (startHour, startMinute, endHour, endM
 
     return new Date(currentTime) > startTime && new Date(currentTime) < endTime;
 }
+
+
+
+export const hashPassword = async (password) => bcrypt.hash(password, 10);
+
+export const matchPassword = async (plainString, hashedString) => await bcrypt.compare(plainString, hashedString);

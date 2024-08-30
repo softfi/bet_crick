@@ -16,7 +16,7 @@ export const vendorAuthentication = (req, res, next) => {
                 var decoded = await authValues(token);
                 console.log("=====");
                 console.log(decoded);
-                if (decoded && decoded.role === "656858d8c7c96b70a05f883d" && decoded.isDeleted === false) {
+                if (decoded && decoded.isDeleted === false) {
                     next();
                 } else {
                     return res.status(401).send({ status: false, msg: "Invalid Token" });

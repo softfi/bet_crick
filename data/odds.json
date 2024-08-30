@@ -1,0 +1,588 @@
+{
+  "status": "ok",
+  "response": {
+    "match_info": {
+      "match_id": 77537,
+      "title": "Sobisco Smashers Malda vs Rashmi Medinipur Wizards",
+      "short_title": "SSM vs RMW",
+      "subtitle": "Match 2",
+      "match_number": "2",
+      "format": 6,
+      "format_str": "T20",
+      "status": 3,
+      "status_str": "Live",
+      "status_note": "Match completed",
+      "game_state": 3,
+      "game_state_str": "Play Ongoing",
+      "domestic": "1",
+      "competition": {
+        "cid": 128683,
+        "title": "Bengal Pro T20 League",
+        "abbr": "Bengal Pro T20 League",
+        "type": "tournament",
+        "category": "domestic",
+        "match_format": "t20",
+        "season": "2024",
+        "status": "live",
+        "datestart": "2024-06-11",
+        "dateend": "2024-06-28",
+        "country": "in",
+        "total_matches": "31",
+        "total_rounds": "1",
+        "total_teams": "10"
+      },
+      "teama": {
+        "team_id": 128512,
+        "name": "Sobisco Smashers Malda",
+        "short_name": "SSM",
+        "logo_url": "https://images.entitysport.com/assets/uploads/2024/06/ssm.png",
+        "thumb_url": "https://images.entitysport.com/assets/uploads/2024/06/ssm.png",
+        "scores_full": "*101/4 (16.1 ov)",
+        "scores": "101/4",
+        "overs": "16.1"
+      },
+      "teamb": {
+        "team_id": 128513,
+        "name": "Rashmi Medinipur Wizards",
+        "short_name": "RMW",
+        "logo_url": "https://images.entitysport.com/assets/uploads/2024/06/rmw.png",
+        "thumb_url": "https://images.entitysport.com/assets/uploads/2024/06/rmw.png",
+        "scores_full": "97/10 (19 ov)",
+        "scores": "97/10",
+        "overs": "19"
+      },
+      "date_start": "2024-06-12 07:30:00",
+      "date_end": "2024-06-12 17:30:00",
+      "timestamp_start": 1718177400,
+      "timestamp_end": 1718213400,
+      "date_start_ist": "2024-06-12 13:00:00",
+      "date_end_ist": "2024-06-12 23:00:00",
+      "venue": {
+        "venue_id": "18",
+        "name": "Eden Gardens",
+        "location": "Kolkata",
+        "country": "India",
+        "timezone": ""
+      },
+      "umpires": "Premdip Chatterjee (India), Krishnendu Pal (India)",
+      "referee": "",
+      "equation": "",
+      "live": "Match completed",
+      "result": "",
+      "result_type": "",
+      "win_margin": "",
+      "winning_team_id": 0,
+      "commentary": 1,
+      "wagon": 0,
+      "latest_inning_number": 2,
+      "oddstype": "1xbet",
+      "toss": {
+        "text": "Rashmi Medinipur Wizards elected to bat",
+        "winner": 128513,
+        "decision": 1
+      }
+    },
+    "live_odds": {
+      "matchodds": {
+        "teama": {
+          "back": "2.52",
+          "lay": "2.62",
+          "back_volume": "589.45",
+          "lay_volume": "66.2"
+        },
+        "teamb": {
+          "back": "1.62",
+          "lay": "1.65",
+          "back_volume": "107.06",
+          "lay_volume": "900.25"
+        }
+      },
+      "tiedmatch": {
+        "teama": {
+          "back": "42",
+          "lay": "50",
+          "back_volume": "19.34",
+          "lay_volume": "1.9"
+        },
+        "teamb": {
+          "back": "1.02",
+          "lay": "1.03",
+          "back_volume": "1026.14",
+          "lay_volume": "4290"
+        }
+      },
+      "bookmaker": {
+        "teama": {
+          "back": "0.00",
+          "lay": "0.00",
+          "back_volume": "0.00",
+          "lay_volume": "0.00"
+        },
+        "teamb": {
+          "back": "1.69",
+          "lay": "1.74",
+          "back_volume": "50000.00",
+          "lay_volume": "50000.00"
+        }
+      }
+    },
+    "session_odds": [
+      {
+        "question_id": 523153,
+        "team_batting": "0",
+        "title": "Most Wickets By a Bowler(USA vs IRE)adv",
+        "back_condition": "4",
+        "back": "100",
+        "lay_condition": "3",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523152,
+        "team_batting": "0",
+        "title": "Most Runs Given by a Bowler(USA vs IRE)adv",
+        "back_condition": "40",
+        "back": "100",
+        "lay_condition": "38",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523151,
+        "team_batting": "0",
+        "title": "Most Dotballs By a Bowler(USA vs IRE)adv",
+        "back_condition": "14",
+        "back": "100",
+        "lay_condition": "12",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523150,
+        "team_batting": "0",
+        "title": "Most Balls Faced By a Batsman(USA vs IRE)adv",
+        "back_condition": "35",
+        "back": "85",
+        "lay_condition": "35",
+        "lay": "115",
+        "status": ""
+      },
+      {
+        "question_id": 523149,
+        "team_batting": "0",
+        "title": "Top batsman runs in Match(USA vs IRE)adv",
+        "back_condition": "57",
+        "back": "90",
+        "lay_condition": "57",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523148,
+        "team_batting": "0",
+        "title": "Highest Scoring over Runs in Match(USA vs IRE)adv",
+        "back_condition": "19",
+        "back": "100",
+        "lay_condition": "18",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523147,
+        "team_batting": "0",
+        "title": "Total Match Double Digit Scorers(USA vs IRE)adv",
+        "back_condition": "10",
+        "back": "90",
+        "lay_condition": "10",
+        "lay": "140",
+        "status": ""
+      },
+      {
+        "question_id": 523146,
+        "team_batting": "0",
+        "title": "Total Match Single Digit Scorers(USA vs IRE)adv",
+        "back_condition": "7",
+        "back": "100",
+        "lay_condition": "6",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523145,
+        "team_batting": "0",
+        "title": "Total Match Duckouts(USA vs IRE)adv",
+        "back_condition": "2",
+        "back": "100",
+        "lay_condition": "1",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523144,
+        "team_batting": "0",
+        "title": "Total Match Fifties(USA vs IRE)adv",
+        "back_condition": "2",
+        "back": "100",
+        "lay_condition": "1",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523143,
+        "team_batting": "0",
+        "title": "Total Match 30s(USA vs IRE)adv",
+        "back_condition": "3",
+        "back": "75",
+        "lay_condition": "3",
+        "lay": "125",
+        "status": ""
+      },
+      {
+        "question_id": 523142,
+        "team_batting": "0",
+        "title": "Total Match Runout(USA vs IRE)adv",
+        "back_condition": "2",
+        "back": "100",
+        "lay_condition": "1",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523141,
+        "team_batting": "0",
+        "title": "Total Match LBW(USA vs IRE)adv",
+        "back_condition": "2",
+        "back": "100",
+        "lay_condition": "1",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523140,
+        "team_batting": "0",
+        "title": "Total Match Bowled(USA vs IRE)adv",
+        "back_condition": "3",
+        "back": "100",
+        "lay_condition": "2",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523139,
+        "team_batting": "0",
+        "title": "Total Match Caught Outs(USA vs IRE)adv",
+        "back_condition": "10",
+        "back": "100",
+        "lay_condition": "9",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523138,
+        "team_batting": "0",
+        "title": "Total Match Extras(USA vs IRE)adv",
+        "back_condition": "18",
+        "back": "100",
+        "lay_condition": "16",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523137,
+        "team_batting": "0",
+        "title": "Total Match Wides(USA vs IRE)adv",
+        "back_condition": "12",
+        "back": "100",
+        "lay_condition": "10",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523136,
+        "team_batting": "0",
+        "title": "Total Match Wkts(USA vs IRE)adv",
+        "back_condition": "14",
+        "back": "100",
+        "lay_condition": "13",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523135,
+        "team_batting": "0",
+        "title": "Total Match Boundaries(USA vs IRE)adv",
+        "back_condition": "34",
+        "back": "100",
+        "lay_condition": "31",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523134,
+        "team_batting": "0",
+        "title": "Total Match Sixes(USA vs IRE)adv",
+        "back_condition": "12",
+        "back": "100",
+        "lay_condition": "10",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523133,
+        "team_batting": "0",
+        "title": "Total Match Fours(USA vs IRE)adv",
+        "back_condition": "24",
+        "back": "100",
+        "lay_condition": "22",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523132,
+        "team_batting": "0",
+        "title": "How many balls face by A Balbirnie(USA vs IRE)adv",
+        "back_condition": "14",
+        "back": "90",
+        "lay_condition": "14",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523131,
+        "team_batting": "0",
+        "title": "How many balls face by P Stirling(USA vs IRE)adv",
+        "back_condition": "16",
+        "back": "90",
+        "lay_condition": "16",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523130,
+        "team_batting": "0",
+        "title": "How many balls face by S Taylor(USA vs IRE)adv",
+        "back_condition": "14",
+        "back": "90",
+        "lay_condition": "14",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523129,
+        "team_batting": "0",
+        "title": "How many balls face by M Patel(USA vs IRE)adv",
+        "back_condition": "15",
+        "back": "90",
+        "lay_condition": "15",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523128,
+        "team_batting": "0",
+        "title": "1st wkt lost to IRE balls(USA vs IRE)adv",
+        "back_condition": "16",
+        "back": "90",
+        "lay_condition": "16",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523127,
+        "team_batting": "0",
+        "title": "1st wkt lost to USA balls(USA vs IRE)adv",
+        "back_condition": "15",
+        "back": "90",
+        "lay_condition": "15",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523126,
+        "team_batting": "0",
+        "title": "A Balbirnie Boundaries(USA vs IRE)adv",
+        "back_condition": "3",
+        "back": "85",
+        "lay_condition": "3",
+        "lay": "115",
+        "status": ""
+      },
+      {
+        "question_id": 523125,
+        "team_batting": "0",
+        "title": "P Stirling Boundaries(USA vs IRE)adv",
+        "back_condition": "4",
+        "back": "100",
+        "lay_condition": "3",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523124,
+        "team_batting": "0",
+        "title": "S Taylor Boundaries(USA vs IRE)adv",
+        "back_condition": "3",
+        "back": "100",
+        "lay_condition": "2",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523123,
+        "team_batting": "0",
+        "title": "M Patel Boundaries(USA vs IRE)adv",
+        "back_condition": "3",
+        "back": "100",
+        "lay_condition": "2",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523122,
+        "team_batting": "0",
+        "title": "1st wkt pship Boundaries IRE(USA vs IRE)adv",
+        "back_condition": "4",
+        "back": "100",
+        "lay_condition": "3",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523121,
+        "team_batting": "0",
+        "title": "1st wkt pship Boundaries USA(USA vs IRE)adv",
+        "back_condition": "3",
+        "back": "100",
+        "lay_condition": "2",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523120,
+        "team_batting": "0",
+        "title": "A Balbirnie run(USA vs IRE)adv",
+        "back_condition": "18",
+        "back": "90",
+        "lay_condition": "18",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523119,
+        "team_batting": "0",
+        "title": "P Stirling run(USA vs IRE)adv",
+        "back_condition": "20",
+        "back": "90",
+        "lay_condition": "20",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523118,
+        "team_batting": "0",
+        "title": "S Taylor run(USA vs IRE)adv",
+        "back_condition": "16",
+        "back": "90",
+        "lay_condition": "16",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523117,
+        "team_batting": "0",
+        "title": "M Patel run(USA vs IRE)adv",
+        "back_condition": "17",
+        "back": "90",
+        "lay_condition": "17",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523116,
+        "team_batting": "0",
+        "title": "Fall of 1st wkt IRE(USA vs IRE)adv",
+        "back_condition": "20",
+        "back": "90",
+        "lay_condition": "20",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523115,
+        "team_batting": "0",
+        "title": "Fall of 1st wkt USA(USA vs IRE)adv",
+        "back_condition": "17",
+        "back": "90",
+        "lay_condition": "17",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523114,
+        "team_batting": "0",
+        "title": "20 over runs IRE(USA vs IRE)adv",
+        "back_condition": "155",
+        "back": "100",
+        "lay_condition": "152",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523113,
+        "team_batting": "0",
+        "title": "20 over runs USA(USA vs IRE)adv",
+        "back_condition": "145",
+        "back": "100",
+        "lay_condition": "142",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523112,
+        "team_batting": "0",
+        "title": "Match 1st over run IRE(USA vs IRE)adv",
+        "back_condition": "6",
+        "back": "80",
+        "lay_condition": "6",
+        "lay": "120",
+        "status": ""
+      },
+      {
+        "question_id": 523111,
+        "team_batting": "0",
+        "title": "Match 1st over run USA(USA vs IRE)adv",
+        "back_condition": "5",
+        "back": "100",
+        "lay_condition": "4",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523110,
+        "team_batting": "0",
+        "title": "6 over runs IRE(USA vs IRE)adv",
+        "back_condition": "44",
+        "back": "100",
+        "lay_condition": "42",
+        "lay": "100",
+        "status": ""
+      },
+      {
+        "question_id": 523109,
+        "team_batting": "0",
+        "title": "6 over runs USA(USA vs IRE)adv",
+        "back_condition": "40",
+        "back": "100",
+        "lay_condition": "38",
+        "lay": "100",
+        "status": ""
+      }
+    ],
+    "total_items": 1,
+    "total_pages": 1
+  },
+  "etag": "016474106d03d213a16eda164977b0bd",
+  "modified": "2024-06-12 10:58:00",
+  "datetime": "2024-06-12 10:58:00",
+  "api_version": "1.0"
+}

@@ -20,7 +20,7 @@ export const userAuthentication = (req, res, next) => {
                 // console.log(decoded);
                 // console.log(decoded.type);
                 // console.log(decoded.type === "customer");
-                if (decoded && decoded.role === "6512c4c6185c0a6bf02b2c65" && decoded.isDeleted === false) {
+                if (decoded && decoded.isDeleted === false) {
                     // console.log(decoded);
                     if(decoded.isActive === true){
                         // if(decoded.isEmailVerify === true || decoded.isMobileVerify === true){

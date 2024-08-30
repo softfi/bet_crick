@@ -5,7 +5,7 @@ import { errorLog } from "../../config/logger.js";
 
 export const vendorLogin = async (req, res) => {
     try {
-        let vendor = await User.findOne({ email: req.body.email, role: '656858d8c7c96b70a05f883d',isDeleted:false });
+        let vendor = await User.findOne({ email: req.body.email, isDeleted:false });
 
         if (vendor) {
             let comparePassword = await bcrypt.compare(req.body.password, vendor.password);
