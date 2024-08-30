@@ -1,0 +1,554 @@
+[
+  {
+    "inPlay": true,
+    "serieseName": "Test Matches",
+    "matchId": "33470458",
+    "matchName": "West Indies v South Africa",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-07T14:00:00.000Z",
+    "ISTtime": "8/7/2024, 7:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 44,
+          "size": 30
+        },
+        {
+          "level": 1,
+          "price": 42,
+          "size": 10
+        },
+        {
+          "level": 2,
+          "price": 40,
+          "size": 177
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 46,
+          "size": 5
+        },
+        {
+          "level": 1,
+          "price": 48,
+          "size": 7
+        },
+        {
+          "level": 2,
+          "price": 50,
+          "size": 28
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "Metro Bank One Day Cup",
+    "matchId": "33475009",
+    "matchName": "Derbyshire v Kent",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-09T10:00:00.000Z",
+    "ISTtime": "8/9/2024, 3:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 1.5,
+          "size": 16
+        },
+        {
+          "level": 1,
+          "price": 1.49,
+          "size": 163
+        },
+        {
+          "level": 2,
+          "price": 1.48,
+          "size": 347
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 1.53,
+          "size": 2
+        },
+        {
+          "level": 1,
+          "price": 1.54,
+          "size": 45
+        },
+        {
+          "level": 2,
+          "price": 1.55,
+          "size": 38
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "Metro Bank One Day Cup",
+    "matchId": "33472344",
+    "matchName": "Essex v Surrey",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-09T13:00:00.000Z",
+    "ISTtime": "8/9/2024, 6:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 1.68,
+          "size": 56
+        },
+        {
+          "level": 1,
+          "price": 1.61,
+          "size": 5
+        },
+        {
+          "level": 2,
+          "price": 1.6,
+          "size": 2
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 1.7,
+          "size": 4
+        },
+        {
+          "level": 1,
+          "price": 1.71,
+          "size": 27
+        },
+        {
+          "level": 2,
+          "price": 1.72,
+          "size": 376
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "The Hundred - Womens",
+    "matchId": "33475282",
+    "matchName": "London Spirit Women v Manchester Originals Women",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-09T14:00:00.000Z",
+    "ISTtime": "8/9/2024, 7:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 1.83,
+          "size": 2191
+        },
+        {
+          "level": 1,
+          "price": 1.82,
+          "size": 116
+        },
+        {
+          "level": 2,
+          "price": 1.81,
+          "size": 5
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 1.84,
+          "size": 261
+        },
+        {
+          "level": 1,
+          "price": 1.85,
+          "size": 10
+        },
+        {
+          "level": 2,
+          "price": 1.86,
+          "size": 1034
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "Global T20 Canada",
+    "matchId": "33474953",
+    "matchName": "Brampton Wolves v Montreal Tigers",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-09T15:00:00.000Z",
+    "ISTtime": "8/9/2024, 8:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 2.16,
+          "size": 5
+        },
+        {
+          "level": 1,
+          "price": 2.14,
+          "size": 69
+        },
+        {
+          "level": 2,
+          "price": 2.06,
+          "size": 48
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 2.22,
+          "size": 15
+        },
+        {
+          "level": 1,
+          "price": 2.26,
+          "size": 27
+        },
+        {
+          "level": 2,
+          "price": 2.34,
+          "size": 7
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "The Hundred",
+    "matchId": "33475215",
+    "matchName": "London Spirit v Manchester Originals",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-09T17:30:00.000Z",
+    "ISTtime": "8/9/2024, 11:00:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 1.82,
+          "size": 251
+        },
+        {
+          "level": 1,
+          "price": 1.8,
+          "size": 90
+        },
+        {
+          "level": 2,
+          "price": 1.79,
+          "size": 49
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 1.83,
+          "size": 111
+        },
+        {
+          "level": 1,
+          "price": 1.84,
+          "size": 786
+        },
+        {
+          "level": 2,
+          "price": 1.85,
+          "size": 1034
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "Global T20 Canada",
+    "matchId": "33474954",
+    "matchName": "Mississauga Bangla Tigers v Toronto Nationals",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-09T20:00:00.000Z",
+    "ISTtime": "8/10/2024, 1:30:00 AM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 1.84,
+          "size": 69
+        },
+        {
+          "level": 1,
+          "price": 1.8,
+          "size": 2
+        },
+        {
+          "level": 2,
+          "price": 1.74,
+          "size": 17
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 1.85,
+          "size": 416
+        },
+        {
+          "level": 1,
+          "price": 1.87,
+          "size": 18
+        },
+        {
+          "level": 2,
+          "price": 1.91,
+          "size": 11
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "The Hundred - Womens",
+    "matchId": "33477704",
+    "matchName": "Southern Brave Women v Trent Rockets Women",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-10T10:00:00.000Z",
+    "ISTtime": "8/10/2024, 3:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 2.08,
+          "size": 35
+        },
+        {
+          "level": 1,
+          "price": 1.9,
+          "size": 60
+        },
+        {
+          "level": 2,
+          "price": 1.8,
+          "size": 2
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 2.1,
+          "size": 193
+        },
+        {
+          "level": 1,
+          "price": 2.12,
+          "size": 90
+        },
+        {
+          "level": 2,
+          "price": 2.14,
+          "size": 177
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "The Hundred - Womens",
+    "matchId": "33477708",
+    "matchName": "Welsh Fire Women v Birmingham Phoenix Women",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-10T13:30:00.000Z",
+    "ISTtime": "8/10/2024, 7:00:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 1.82,
+          "size": 46
+        },
+        {
+          "level": 1,
+          "price": 1.8,
+          "size": 2
+        },
+        {
+          "level": 2,
+          "price": 1.74,
+          "size": 17
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 1.9,
+          "size": 38
+        },
+        {
+          "level": 1,
+          "price": 2.26,
+          "size": 2
+        },
+        {
+          "level": 2,
+          "price": 2.36,
+          "size": 13
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "The Hundred",
+    "matchId": "33477706",
+    "matchName": "Southern Brave v Trent Rockets",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-10T13:30:00.000Z",
+    "ISTtime": "8/10/2024, 7:00:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 1.84,
+          "size": 45
+        },
+        {
+          "level": 1,
+          "price": 1.83,
+          "size": 39
+        },
+        {
+          "level": 2,
+          "price": 1.82,
+          "size": 444
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 1.88,
+          "size": 14
+        },
+        {
+          "level": 1,
+          "price": 1.92,
+          "size": 14
+        },
+        {
+          "level": 2,
+          "price": 1.95,
+          "size": 18
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "The Hundred",
+    "matchId": "33477722",
+    "matchName": "Welsh Fire v Birmingham Phoenix",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-10T17:00:00.000Z",
+    "ISTtime": "8/10/2024, 10:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 2.1,
+          "size": 34
+        },
+        {
+          "level": 1,
+          "price": 1.8,
+          "size": 2
+        },
+        {
+          "level": 2,
+          "price": 1.74,
+          "size": 17
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 2.22,
+          "size": 38
+        },
+        {
+          "level": 1,
+          "price": 2.26,
+          "size": 2
+        },
+        {
+          "level": 2,
+          "price": 2.36,
+          "size": 13
+        }
+      ]
+    }
+  },
+  {
+    "inPlay": false,
+    "serieseName": "Womens International Twenty20 Matches",
+    "matchId": "33478039",
+    "matchName": "Ireland Women v Sri Lanka Women",
+    "status": "OPEN",
+    "timezone": "GMT",
+    "openDate": "2024-08-11T15:00:00.000Z",
+    "ISTtime": "8/11/2024, 8:30:00 PM",
+    "odds": {
+      "availableToBack": [
+        {
+          "level": 0,
+          "price": 2.78,
+          "size": 4
+        },
+        {
+          "level": 1,
+          "price": 2.76,
+          "size": 2
+        },
+        {
+          "level": 2,
+          "price": 2.74,
+          "size": 29
+        }
+      ],
+      "availableToLay": [
+        {
+          "level": 0,
+          "price": 2.98,
+          "size": 4
+        },
+        {
+          "level": 1,
+          "price": 3.1,
+          "size": 78
+        },
+        {
+          "level": 2,
+          "price": 3.65,
+          "size": 2
+        }
+      ]
+    }
+  }
+]

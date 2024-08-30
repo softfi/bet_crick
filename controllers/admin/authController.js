@@ -6,7 +6,7 @@ import { errorLog } from "../../config/logger.js";
 export const adminLogin = async (req, res) => {
     try {
         // Find a user with the provided email
-        let admin = await User.findOne({ email: req.body.email, role: '6512c4c1185c0a6bf02b2c61' });
+        let admin = await User.findOne({ email: req.body.email });
 
         if (admin) {
             // Compare the provided password with the stored hashed password
